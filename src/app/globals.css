@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #2C5F2D;
+  --color-primary-light: #4A7C4B;
+  --color-primary-dark: #1A3D1B;
+  --color-secondary: #97BC62;
+  --color-secondary-light: #B5D48B;
+  --color-accent: #D4A843;
+  --color-accent-dark: #B8922A;
+  --color-earth: #5D4037;
+  --color-earth-light: #8D6E63;
+  --color-cream: #FEFAE0;
+  --color-cream-dark: #F5ECC8;
+  --color-warm-white: #FFFDF7;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Poppins", system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-warm-white);
+  color: #1C1917;
+  overflow-x: hidden;
+}
+
+/* Hero overlay gradient */
+.hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(28, 63, 20, 0.85) 0%,
+    rgba(44, 95, 45, 0.6) 40%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+/* Section accent line */
+.section-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+}
+
+/* Image hover zoom */
+.img-hover-zoom {
+  overflow: hidden;
+}
+.img-hover-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar transition */
+.navbar-scrolled {
+  background-color: rgba(255, 253, 247, 0.97) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+/* Smooth fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Testimonial quote decoration */
+.quote-mark {
+  position: relative;
+}
+.quote-mark::before {
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-secondary);
+  opacity: 0.4;
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+
+/* Product card overlay */
+.product-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(44, 95, 45, 0.9) 0%,
+    rgba(44, 95, 45, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+/* CTA section overlay */
+.cta-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(44, 95, 45, 0.92) 0%,
+    rgba(28, 63, 20, 0.85) 50%,
+    rgba(93, 64, 55, 0.8) 100%
+  );
+}
+
+/* Page header overlay */
+.page-header-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 63, 20, 0.8) 0%,
+    rgba(44, 95, 45, 0.7) 100%
+  );
+}
+
+/* Focus styles */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.15);
 }

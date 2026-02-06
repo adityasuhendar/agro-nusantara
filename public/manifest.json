@@ -1,0 +1,24 @@
+{
+  "name": "AgroNusantara - Pertanian & Peternakan Terpadu",
+  "short_name": "AgroNusantara",
+  "description": "Perusahaan pertanian dan peternakan terpadu yang berkomitmen membangun ketahanan pangan Nusantara.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF7",
+  "theme_color": "#2C5F2D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
